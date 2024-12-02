@@ -1,6 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
-html,
-body {
+@import "./styles/variables.scss" 
+
+html, body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -8,6 +8,12 @@ body {
 
 html,
 body,
+p,
+h1,
+h2,
+h3,
+h4
+
 app-root {
   height: 100%;
 }
