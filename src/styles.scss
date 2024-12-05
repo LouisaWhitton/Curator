@@ -1,1 +1,83 @@
 /* You can add global styles to this file, and also import other style files */
+@import './styles/variables.scss';
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+app-root {
+  height: 100%;
+}
+
+app-root {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.mt-small {
+  margin-top: 15px;
+}
+
+.mt-large {
+  margin-top: 30px;
+}
+
+.mb-small {
+  margin-bottom: 15px;
+}
+
+.mb-large {
+  margin-bottom: 30px;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.gap-small {
+  gap: 1rem;
+}
+
+.gap-large {
+  gap: 2rem;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.align-left {
+  align-items: left;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.full-center {
+  align-items: center;
+  justify-content: center;
+}
+
+.hidden {
+  display: none;
+}
