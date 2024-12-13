@@ -1,2 +1,5 @@
-
-<p>home works!</p>
+<ol>
+  @for (item of allItems.objects; track $index) {
+  <li>{{ $index }} : {{ item.id }} : {{ item.title }}</li>
+  }
+</ol>
