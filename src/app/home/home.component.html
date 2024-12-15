@@ -1,5 +1,16 @@
-<ol>
+<!-- <ol>
   @for (item of allItems.objects; track $index) {
   <li>{{ $index }} : {{ item.id }} : {{ item.title }}</li>
   }
-</ol>
+</ol> -->
+
+<div class="column align-left">
+<a routerLink="/display-collection">Cooper Hewitt, Smithsonian Design Museum</a>
+<img class="img-logo" src="assets/images/cooper_hewitt_logo.jpg" alt="
+An image of a sign reading 'Cooper Hewitt' and, underneath, a smaller sign with a stylised image of a sun and the words 'Smithsonian Design Museum'
+
+Image copyright (c) Ajay Suresh from New York, NY, USA 
+Used here under the  Creative Commons Attribution 2.0 Generic license"
+/>
+<router-outlet />
+</div>
