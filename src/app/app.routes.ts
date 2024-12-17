@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { DisplayCollectionComponent } from './collections/display-collection/display-collection.component';
+import { CooperHewittComponent } from './collections/cooper-hewitt/cooper-hewitt.component';
 
 export const routes: Routes = [
   {
@@ -9,8 +9,8 @@ export const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path: 'display-collection',
-    title: 'Display Collection',
-    component: DisplayCollectionComponent,
+    path: 'cooper-hewitt',
+    title: 'Cooper Hewitt',
+    component: CooperHewittComponent,
   },
 ];

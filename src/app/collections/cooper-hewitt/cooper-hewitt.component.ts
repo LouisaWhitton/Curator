@@ -1,16 +1,28 @@
-import { Component, Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component } from '@angular/core';
+import { CooperHewittService } from '../../services/cooper-hewitt.service';
 
 @Component({
   selector: 'app-cooper-hewitt',
-  imports: [NgFor],
+  imports: [],
   templateUrl: './cooper-hewitt.component.html',
   styleUrl: './cooper-hewitt.component.scss'
 })
 export class CooperHewittComponent {
-  constructor(private httpClient: HttpClient){}
+  allItems: any = [];
+  constructor(private dataService: CooperHewittService) {}
 
-  get_listAll(): Observable<any[]>{
-    return this.httpClient.get<any[]>(process.env["COOPERHEWITT_URL"]  + '?method=cooperhewitt.search.collection&access_token=' + process.env["COOPERHEWITT_TOKEN"]  + '&period_id=35417235&page=1&per_page=100')
-    };
-}
+  ngOnInit(): void {
+      // Fetch JSON data
+      this.dataService.getAll().subscribe({
+        next: (data) => {
+          //console.log('JSON Data:', data);
+          this.allItems = data;
+          console.log(this.allItems);
+        },
+        error: (error) => {
+          console.error('Error fetching JSON data:', error);
+        },
+      });
+
+    }
+  }

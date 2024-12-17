@@ -1,10 +1,18 @@
-<!-- <p>cooper-hewitt works!</p> -->
-
-<!-- <button (click)="get_listAll()">GET /all items</button> -->
-
-<!-- <ul>
-    <li *ngFor="let item of listAll" >
-      -- id: {{item.id}}
-      -- title: {{item.title}}
+<ol>
+  @for (item of allItems.objects; track item.id) {
+   <li>
+      <p>{{ item.id }} : {{ item.title }} </p>
+      @for (participant of item.participants; track participant) {
+        @if ( !["Donor", "Bequestor", "Previous owner"].includes(participant.role_name)){
+          <p>{{ participant.role_name }} : {{ participant.person_name }} </p>
+        }
+      }
+      <a [href]="item.url">click for more details</a>
+      @if ( item.images.length === 1){
+        <img class="img-logo"  [src]="item.images[0].n.url" alt="{{ item.title }}" />
+      } @else { 
+        <p>{{ item.id }} has not yet been digitised</p>
+      }
     </li>
-  </ul>  -->
+}
+</ol>
