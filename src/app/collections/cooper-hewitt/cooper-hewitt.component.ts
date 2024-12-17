@@ -3,6 +3,7 @@ import { CooperHewittService } from '../../services/cooper-hewitt.service';
 
 @Component({
   selector: 'app-cooper-hewitt',
+  standalone: true,
   imports: [],
   templateUrl: './cooper-hewitt.component.html',
   styleUrl: './cooper-hewitt.component.scss'
@@ -12,8 +13,8 @@ export class CooperHewittComponent {
   constructor(private dataService: CooperHewittService) {}
 
   ngOnInit(): void {
-      // Fetch JSON data
-      this.dataService.getAll().subscribe({
+      // Fetch first page of all items
+      this.dataService.getAll(1).subscribe({
         next: (data) => {
           //console.log('JSON Data:', data);
           this.allItems = data;
@@ -25,4 +26,5 @@ export class CooperHewittComponent {
       });
 
     }
+
   }

@@ -20,7 +20,7 @@
             "customWebpackConfig": {
               "path": "src/custom-webpack.config.ts"
             },
-            "outputPath": "dist/curator",
+            "outputPath": "dist/curator_v2",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -49,8 +49,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "maximumWarning": "2kB",
+                  "maximumError": "4kB"
                 }
               ],
               "outputHashing": "all"
@@ -58,13 +58,7 @@
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true,
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.development.ts"
-                }
-              ]
+              "sourceMap": true
             }
           },
           "defaultConfiguration": "production"
@@ -73,10 +67,10 @@
           "builder": "@angular-builders/custom-webpack:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "curator:build:production"
+              "buildTarget": "curator_v2:build:production"
             },
             "development": {
-              "buildTarget": "curator:build:development"
+              "buildTarget": "curator_v2:build:development"
             }
           },
           "defaultConfiguration": "development"

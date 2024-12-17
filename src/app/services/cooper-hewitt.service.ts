@@ -7,15 +7,15 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class CooperHewittService {
-  private apiUrl = process.env['COOPERHEWITT_URL'];
+  private apiUrl = process.env['COOPERHEWITT_URL'];  
 
   constructor(private http: HttpClient) {}
 
   // Method to fetch JSON data
-  getAll(): Observable<any> {
+  getAll(pageFrom:number): Observable<any> {
     return this.http
       .get<any>(
-        `${process.env['COOPERHEWITT_URL']}?method=cooperhewitt.search.collection&access_token=${process.env['COOPERHEWITT_TOKEN']}&period_id=35417235&page=1&per_page=100'`
+        `${process.env['COOPERHEWITT_URL']}?method=cooperhewitt.search.collection&access_token=${process.env['COOPERHEWITT_TOKEN']}&period_id=35417235&page=${pageFrom}&per_page=50'`
       )
       .pipe(
         catchError((error) => {
