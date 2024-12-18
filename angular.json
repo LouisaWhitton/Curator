@@ -20,7 +20,7 @@
             "customWebpackConfig": {
               "path": "src/custom-webpack.config.ts"
             },
-            "outputPath": "dist/curator_v2",
+            "outputPath": "dist/curator",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -67,10 +67,10 @@
           "builder": "@angular-builders/custom-webpack:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "curator_v2:build:production"
+              "buildTarget": "curator:build:production"
             },
             "development": {
-              "buildTarget": "curator_v2:build:development"
+              "buildTarget": "curator:build:development"
             }
           },
           "defaultConfiguration": "development"
