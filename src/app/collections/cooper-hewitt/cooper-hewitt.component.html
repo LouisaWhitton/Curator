@@ -1,9 +1,50 @@
 <h1>Cooper Hewitt - Smithsonian Design Museum</h1>
 
-<ol>
+<!-- <p-listbox
+  [options]="departments"
+  [(ngModel)]="selectedDepartment"
+  optionLabel="name"
+></p-listbox> -->
+
+<!-- <p>Selected Role: {{selectedRole ? selectedRole.name : 'none'}}</p> -->
+
+<!-- <label for="selectDepartment">Filter department:</label>
+
+<select name="selectDepartment" id="departmentId">
+  <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="mercedes">Mercedes</option>
+  <option value="audi">Audi</option>
+</select> -->
+
+<p>Showing items for department: {{selectedDepartment.name}}</p>
+    <!-- <p>{{ username }}'s favorite framework: {{ favoriteFramework }}</p>
+    <label for="framework">
+      Favorite Framework:
+      <input id="framework" type="text" [(ngModel)]="favoriteFramework" />
+    </label> -->
+
+<!-- <p-listbox [options]="departments" [(ngModel)]="selectedDepartment" optionLabel="name"></p-listbox> -->
+
+<!-- <p-listbox [options]="departments" [(ngModel)]="selectedDepartment" optionLabel="name" optionValue="id"></p-listbox> -->
+
+@defer ( when fetchComplete ){
+  <p-listbox [options]="allDepartments" [(ngModel)]="selectedDepartment" optionLabel="name" ></p-listbox>
+  <!-- <ol>
+    @for (department of allDepartments; track department.id) {
+     <li>
+        <p>{{ department.name }} </p>
+      </li>
+  }
+  </ol> -->
+
+  <app-cooper-hewitt-list-items departmentId={{selectedDepartment.id}} />
+}
+
+<!-- <ol>
   @for (item of allItems.objects; track item.id) {
    <li>
-      <p>{{ item.id }} : {{ item.title }} </p>
+      <p>{{ item.title }} </p>
       @for (participant of item.participants; track participant) {
         @if ( !["Donor", "Bequestor", "Previous owner"].includes(participant.role_name)){
           <p>{{ participant.role_name }} : {{ participant.person_name }} </p>
@@ -13,8 +54,10 @@
       @if ( item.images.length === 1){
         <img class="img-logo"  [src]="item.images[0].n.url" alt="{{ item.title }}" />
       } @else { 
-        <p>{{ item.id }} has not yet been digitised</p>
+        <p>{{ item.title }} has not yet been digitised</p>
       }
     </li>
 }
-</ol>
+</ol> -->
+
+

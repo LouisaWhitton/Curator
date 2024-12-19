@@ -13,10 +13,10 @@ export class CooperHewittService {
   constructor(private http: HttpClient) {}
 
   // Method to fetch from all items
-  getAll(pageFrom:number): Observable<any> {
+  getAll(pageFrom:number, filterString: string): Observable<any> {
     return this.http
       .get<any>(
-        `${process.env['COOPERHEWITT_URL']}?method=cooperhewitt.search.collection&access_token=${process.env['COOPERHEWITT_TOKEN']}&department_id=35347493&page=${pageFrom}&per_page=50`
+        `${process.env['COOPERHEWITT_URL']}?method=cooperhewitt.search.collection&access_token=${process.env['COOPERHEWITT_TOKEN']}&${filterString}&page=${pageFrom}&per_page=50`
       )
       .pipe(
         catchError((error) => {
@@ -29,9 +29,9 @@ export class CooperHewittService {
   }
 
     // Method to fetch all departments
-    getDepartments(pageFrom:number): Observable<cooperhewittdepartment[]> {
+    getDepartments(pageFrom:number): Observable<{ departments:cooperhewittdepartment[] }> {
       return this.http
-        .get<cooperhewittdepartment[]>(
+        .get<{ departments:cooperhewittdepartment[] }>(
           `${process.env['COOPERHEWITT_URL']}?method=cooperhewitt.departments.getList&access_token=${process.env['COOPERHEWITT_TOKEN']}&page=${pageFrom}&per_page=50'` 
         )
         .pipe(

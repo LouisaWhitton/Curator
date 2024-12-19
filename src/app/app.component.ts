@@ -20,11 +20,6 @@ export class AppComponent {
     } else {
       console.log('Production!');
     }
-
-    let myString: string = process.env["API_KEY"] || 'DEF_A';
-    console.log(myString);
   }
-
-  
 
 }
