@@ -17,6 +17,7 @@ import { ListItemsComponent } from './list-items/list-items.component';
 export class CooperHewittComponent {
   // allItems: any = [];
   allDepartments: cooperhewittdepartment[] = [];
+  @Input() allItems: any = [];
   selectedDepartment: cooperhewittdepartment = { id: "35347493", name: "Drawings, Prints, and Graphic Design", count_objects: "" };
   fetchComplete: boolean = false;
   

@@ -38,8 +38,9 @@
   }
   </ol> -->
 
-  <app-cooper-hewitt-list-items departmentId={{selectedDepartment.id}} />
 }
+
+<app-cooper-hewitt-list-items departmentId={{selectedDepartment.id}} allItems="{{allItems}}"/>
 
 <!-- <ol>
   @for (item of allItems.objects; track item.id) {
