@@ -6,6 +6,7 @@ import { FooterComponent } from './layout/footer/footer.component';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [RouterOutlet, HeaderComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -19,11 +20,6 @@ export class AppComponent {
     } else {
       console.log('Production!');
     }
-
-    let myString: string = process.env["API_KEY"] || 'DEF_A';
-    console.log(myString);
   }
-
-  
 
 }

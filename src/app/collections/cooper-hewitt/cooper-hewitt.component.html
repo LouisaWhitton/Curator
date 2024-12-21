@@ -1,10 +1,28 @@
-<!-- <p>cooper-hewitt works!</p> -->
+<h1>Cooper Hewitt - Smithsonian Design Museum</h1>
 
-<!-- <button (click)="get_listAll()">GET /all items</button> -->
+<p-fieldset legend="Filter" [toggleable]="true">
+  @defer ( when fetchComplete ){
+  <p-listbox
+    [options]="allDepartments"
+    [(ngModel)]="selectedDepartment"
+    optionLabel="name"
+    [listStyle]="{ 'max-height': '150px' }"
+    [style]="{ width: '25rem' }"
+  ></p-listbox>
+  }
+  <br />
+  <br />
 
-<!-- <ul>
-    <li *ngFor="let item of listAll" >
-      -- id: {{item.id}}
-      -- title: {{item.title}}
-    </li>
-  </ul>  -->
+  <p-floatlabel>
+    <input id="search-text" pInputText [(ngModel)]="inputSearchString" [style]="{ width: '30rem' }"/>
+    <label for="search-text">Your search here (eg 'cat')</label>
+  </p-floatlabel>
+  <p-button label="Search" icon="pi pi-search" (onClick)="setSearchString()" ></p-button>
+</p-fieldset>
+
+<app-cooper-hewitt-list-items
+  departmentId="{{ selectedDepartment.id }}"
+  departmentName="{{ selectedDepartment.name }}"
+  searchString="{{searchString}}"
+  allItems="{{ allItems }}"
+/>
