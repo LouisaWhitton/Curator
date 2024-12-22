@@ -1,0 +1,19 @@
+<!-- <p>Displaying page {{allItems.page}} of {{allItems.pages}} ({{allItems.total}}) for {{departmentName}} containing '{{searchString}}'</p> -->
+ <p>{{infoString}}</p>
+
+<ol>
+    @for (item of allItems.artObjects; track item.id) {
+     <li>
+        <p>{{ item.title}} </p>
+        <p>by {{ item.principalOrFirstMaker }}</p>
+        <a [href]="item.links.web">click for more details</a>
+        @if ( item.hasImage ){
+          <img class="img-logo"  [src]="item.webImage.url" [alt]="item.longTitle" />
+        } @else { 
+          <p>No image available for {{ item.title }}</p>
+        }
+    </li>
+  }
+</ol>
+  
+

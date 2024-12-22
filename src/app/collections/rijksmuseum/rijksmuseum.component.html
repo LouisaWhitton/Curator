@@ -1,1 +1,27 @@
-<p>rijksmuseum works!</p>
+<h1>Rijksmuseum, Amsterdam</h1>
+
+<p-fieldset legend="Filter" [toggleable]="true">
+  <!-- @defer ( when fetchComplete ){
+  <p-listbox
+    [options]="allDepartments"
+    [(ngModel)]="selectedDepartment"
+    optionLabel="name"
+    [listStyle]="{ 'max-height': '150px' }"
+    [style]="{ width: '25rem' }"
+  ></p-listbox>
+  }
+  <br />
+  <br /> -->
+
+  <p-floatlabel>
+    <input id="search-text" pInputText [(ngModel)]="inputSearchString" [style]="{ width: '30rem' }"/>
+    <label for="search-text">Your search here (eg Rembrandt Nightwatch)</label>
+  </p-floatlabel>
+  <p-button label="Search" icon="pi pi-search" (onClick)="setSearchString()" ></p-button>
+</p-fieldset>
+
+<app-rijksmuseum-list-items
+  searchString="{{searchString}}"
+  allItems="{{ allItems }}"
+  pageNumber="{{ pageNumber }}"
+/>
