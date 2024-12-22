@@ -1,5 +1,13 @@
 <!-- <p>Displaying page {{allItems.page}} of {{allItems.pages}} ({{allItems.total}}) for {{departmentName}} containing '{{searchString}}'</p> -->
  <p>{{infoString}}</p>
+ <p>{{pageNumber}}</p>
+
+ <div class="grid align-items-center">
+  <div class="col-10">
+    <p-paginator [rows]="10" [totalRecords]="allItems.count" (onPageChange)="onPageChange($event)"
+    [showJumpToPageDropdown]="true" [showPageLinks]="false"></p-paginator>
+  </div>
+</div>
 
 <ol>
     @for (item of allItems.artObjects; track item.id) {
@@ -15,5 +23,3 @@
     </li>
   }
 </ol>
-  
-

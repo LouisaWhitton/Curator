@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { RijksmuseumService } from '../../services/rijksmuseum.service';
 import { FormsModule, ReactiveFormsModule, FormControl, FormGroup } from '@angular/forms';
 import {Listbox, ListboxModule} from 'primeng/listbox';
@@ -19,9 +19,10 @@ import { ListItemsComponent } from './list-items/list-items.component';
 })
 export class RijksmuseumComponent {
   @Input() allItems: any = [];
-  @Input() pageNumber: string = "1";
-  searchString: string = "";
-  inputSearchString: string = "";
+  // @Input() pageNumber: string = "1";
+  // @Output() pageNumberChange = new EventEmitter<string>();
+  searchString: string = "Rembrandt self portrait";
+  inputSearchString: string = "Rembrandt self portrait";
 
   setSearchString(): void {
     this.searchString = this.inputSearchString;
