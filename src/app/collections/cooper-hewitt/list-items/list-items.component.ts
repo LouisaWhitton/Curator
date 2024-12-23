@@ -1,6 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnChanges, OnInit } from '@angular/core';
 import { CooperHewittService } from '../../../services/cooper-hewitt.service';
-import { cooperhewittdepartment } from '../../../../shared.types';
 import { mycollectionitem } from '../../../../shared.types';
 import { Button } from 'primeng/button';
 import { PaginatorModule } from 'primeng/paginator';
@@ -23,7 +22,6 @@ export class ListItemsComponent {
   pageNumber: number = 1;
   totalPages: number = 0;
   myCollection: any = [];
-  // {{departmentName}} containing '{{searchString}}'"
 
   constructor(private dataService: CooperHewittService) {}
 
@@ -41,7 +39,6 @@ export class ListItemsComponent {
     // Fetch first page of all items
     this.dataService.getAll(this.pageNumber, this.filterString).subscribe({
       next: (data) => {
-        //console.log('JSON Data:', data);
         this.allItems = data;
         console.log(this.allItems);
         console.log(this.filterString)
@@ -57,8 +54,6 @@ export class ListItemsComponent {
   }
 
   onPageChange(props: any): void {
-    // alert(this.filterString);
-    // alert(props.page);
     this.pageNumber=props.page + 1;
     this.callFromApi();
   }

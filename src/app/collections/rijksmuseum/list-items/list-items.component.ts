@@ -21,7 +21,6 @@ export class ListItemsComponent {
 
   filterString: string = "";
   infoString: string = "";
-  // {{departmentName}} containing '{{searchString}}'"
 
   constructor(private dataService: RijksmuseumService) {}
 
@@ -31,23 +30,6 @@ export class ListItemsComponent {
 
   ngOnChanges(): void {
     this.callFromApi();
-    // this.filterString = this.searchString.replace(/\s/g, "%20AND%20");
-
-    // // Fetch first page of all items
-    // this.dataService.getAll(this.pageNumber, this.filterString).subscribe({
-    //   next: (data) => {
-    //     //console.log('JSON Data:', data);
-    //     this.allItems = data;
-    //     console.log(this.allItems);
-    //     // console.log(this.filterString)
-    //     this.totalPages = Math.ceil(this.allItems.count/10);
-    //     this.allItemsChange.emit(this.allItems);
-    //     this.infoString = this.allItems.count === 0 ? `No items found ` : `Displaying page ${String(this.pageNumber)} of ${this.totalPages} (total: ${this.allItems.count} items) containing '${this.searchString.replace(/\s/g, "' ")}'`
-    //   },
-    //   error: (error) => {
-    //     console.error('Error fetching JSON data:', error);
-    //   },
-    // });
   }
 
   callFromApi(): void {
@@ -56,10 +38,8 @@ export class ListItemsComponent {
     // Fetch first page of all items
     this.dataService.getAll(this.pageNumber, this.filterString).subscribe({
       next: (data) => {
-        //console.log('JSON Data:', data);
         this.allItems = data;
         console.log(this.allItems);
-        // console.log(this.filterString)
         this.totalPages = Math.ceil(this.allItems.count/10);
         this.allItemsChange.emit(this.allItems);
         this.infoString = this.allItems.count === 0 ? `No items found ` : `Displaying items matching '${this.searchString.replace(/\s/g, "' '")}'`
@@ -71,8 +51,6 @@ export class ListItemsComponent {
   }
 
   onPageChange(props: any): void {
-    // alert(this.filterString);
-    // alert(props.page);
     this.pageNumber=props.page + 1;
     this.callFromApi();
   }

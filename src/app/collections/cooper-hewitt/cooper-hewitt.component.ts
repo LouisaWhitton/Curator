@@ -2,13 +2,10 @@ import { Component, Input } from '@angular/core';
 import { CooperHewittService } from '../../services/cooper-hewitt.service';
 import { cooperhewittdepartment, mycollectionitem } from '../../../shared.types';
 import { FormsModule, ReactiveFormsModule, FormControl, FormGroup } from '@angular/forms';
-import {Listbox, ListboxModule} from 'primeng/listbox';
-import { InputGroup } from 'primeng/inputgroup';
+import { ListboxModule} from 'primeng/listbox';
 import { Fieldset } from 'primeng/fieldset';
 import { FloatLabel } from 'primeng/floatlabel';
-import { Fluid } from 'primeng/fluid';
 import { Button } from 'primeng/button';
-import {InputTextModule} from 'primeng/inputtext';
 import { ListItemsComponent } from './list-items/list-items.component';
 
 // type department = {id: string, name: string, count_objects: string}[];
@@ -39,7 +36,6 @@ export class CooperHewittComponent {
     // Fetch first page of departments
     this.dataService.getDepartments(1).subscribe({
       next: (data) => {
-        //console.log('JSON Data:', data);
         this.allDepartments = data.departments;
         console.log(this.allDepartments);
         this.selectedDepartment = this.allDepartments[0];

@@ -1,32 +1,6 @@
-<!-- <ol>
-  @for (item of allItems.objects; track $index) {
-  <li>{{ $index }} : {{ item.id }} : {{ item.title }}</li>
-  }
-</ol> -->
-
-<!-- <div class="column align-left">
-<a routerLink="/cooper-hewitt">Cooper Hewitt, Smithsonian Design Museum</a>
-<img class="img-logo" src="assets/images/cooper_hewitt_logo.jpg" alt="
-An image of a sign reading 'Cooper Hewitt' and, underneath, a smaller sign with a stylised image of a sun and the words 'Smithsonian Design Museum'
-
-Image copyright (c) Ajay Suresh from New York, NY, USA 
-Used here under the  Creative Commons Attribution 2.0 Generic license"
-/>
-<router-outlet />
-</div> -->
-
 <div class="grid-container">
     <div class="item1" >
 <p-dataview #dv [value]="collections">
-  <!-- <ng-template #header>
-      <div class="flex justify-end">
-          <p-selectbutton [(ngModel)]="layout" [options]="options" [allowEmpty]="false">
-              <ng-template #item let-item>
-                  <i class="pi " [ngClass]="{ 'pi-bars': item === 'list', 'pi-table': item === 'grid' }"></i>
-              </ng-template>
-          </p-selectbutton>
-      </div>
-  </ng-template> -->
   
   <ng-template #list let-items>
       @for(collection of collections; track collection){
@@ -63,16 +37,7 @@ Used here under the  Creative Commons Attribution 2.0 Generic license"
     </div>
     <div class="item2">
         <p-dataview #dv [value]="myCollections">
-            <!-- <ng-template #header>
-                <div class="flex justify-end">
-                    <p-selectbutton [(ngModel)]="layout" [options]="options" [allowEmpty]="false">
-                        <ng-template #item let-item>
-                            <i class="pi " [ngClass]="{ 'pi-bars': item === 'list', 'pi-table': item === 'grid' }"></i>
-                        </ng-template>
-                    </p-selectbutton>
-                </div>
-            </ng-template> -->
-            
+           
             <ng-template #list let-items>
                 @for(mycollection of myCollections; track mycollection){
                     <div class="column wrap align-left mb-small" >

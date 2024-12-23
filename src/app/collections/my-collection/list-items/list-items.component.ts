@@ -1,6 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnChanges, OnInit } from '@angular/core';
 import {PaginatorModule} from 'primeng/paginator';
-import { mycollectionitem } from '../../../../shared.types';
 
 @Component({
   selector: 'app-my-collection-list-items',
