@@ -1,11 +1,13 @@
 import { Component, Input, Output, EventEmitter, OnChanges, OnInit } from '@angular/core';
 import { RijksmuseumService } from '../../../services/rijksmuseum.service';
 import {PaginatorModule} from 'primeng/paginator';
+import { mycollectionitem } from '../../../../shared.types';
+import { Button } from 'primeng/button';
 
 @Component({
   selector: 'app-rijksmuseum-list-items',
   standalone: true,
-  imports: [PaginatorModule],
+  imports: [PaginatorModule, Button],
   templateUrl: './list-items.component.html',
   styleUrl: './list-items.component.scss'
 })
@@ -15,12 +17,17 @@ export class ListItemsComponent {
   @Input() searchString: string = "";
   pageNumber: number = 1;
   totalPages: number = 0;
+  myCollection: any = [];
 
   filterString: string = "";
   infoString: string = "";
   // {{departmentName}} containing '{{searchString}}'"
 
   constructor(private dataService: RijksmuseumService) {}
+
+  ngOnInit(): void {
+    let mycol: string = JSON.parse(String(localStorage.getItem('myCollection')));
+  }
 
   ngOnChanges(): void {
     this.callFromApi();
@@ -70,5 +77,20 @@ export class ListItemsComponent {
     this.callFromApi();
   }
 
+
+  addToMyCollection(origin_id: string, title: string, originator: string, imageUrl: string, originUrl: string ): void{
+    let itemToAdd: mycollectionitem = {
+      origin_id: origin_id,
+      collection_name: "Rijksmuseum",
+      title: title,
+      originator: originator,
+      imageUrl: imageUrl,
+      originUrl: originUrl
+    }
+    this.myCollection = JSON.parse(String(localStorage.getItem('myCollection')));
+    this.myCollection.push(itemToAdd);
+    localStorage.removeItem("myCollection");
+    localStorage.setItem('myCollection', JSON.stringify(this.myCollection));
+  }
   
 }

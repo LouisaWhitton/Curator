@@ -1,6 +1,6 @@
 <!-- <p>Displaying page {{allItems.page}} of {{allItems.pages}} ({{allItems.total}}) for {{departmentName}} containing '{{searchString}}'</p> -->
  <p>{{infoString}}</p>
- <p>{{pageNumber}}</p>
+ <!-- <p>{{pageNumber}}</p> -->
 
  <div class="grid align-items-center">
   <div class="col-10">
@@ -14,12 +14,14 @@
      <li>
         <p>{{ item.title}} </p>
         <p>by {{ item.principalOrFirstMaker }}</p>
-        <a [href]="item.links.web">click for more details</a>
         @if ( item.hasImage ){
           <img class="img-logo"  [src]="item.webImage.url" [alt]="item.longTitle" />
         } @else { 
           <p>No image available for {{ item.title }}</p>
         }
+        <br />
+        <a [href]="item.links.web">click for more details</a>
+        <p-button icon="pi pi-heart" (onClick)="addToMyCollection(item.id, item.title, item.principalOrFirstMaker, item.webImage.url, item.links.web)" ></p-button>
     </li>
   }
 </ol>

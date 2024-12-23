@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CooperHewittService } from '../../services/cooper-hewitt.service';
-import { cooperhewittdepartment } from '../../../shared.types';
+import { cooperhewittdepartment, mycollectionitem } from '../../../shared.types';
 import { FormsModule, ReactiveFormsModule, FormControl, FormGroup } from '@angular/forms';
 import {Listbox, ListboxModule} from 'primeng/listbox';
 import { InputGroup } from 'primeng/inputgroup';
@@ -21,7 +21,6 @@ import { ListItemsComponent } from './list-items/list-items.component';
   styleUrl: './cooper-hewitt.component.scss',
 })
 export class CooperHewittComponent {
-  // allItems: any = [];
   allDepartments: cooperhewittdepartment[] = [];
   @Input() allItems: any = [];
   selectedDepartment: cooperhewittdepartment = { id: "35347493", name: "Drawings, Prints, and Graphic Design", count_objects: "" };
@@ -35,7 +34,8 @@ export class CooperHewittComponent {
     this.searchString = this.inputSearchString;
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
+    let mycol: string = JSON.parse(String(localStorage.getItem('myCollection')));
     // Fetch first page of departments
     this.dataService.getDepartments(1).subscribe({
       next: (data) => {
@@ -51,5 +51,4 @@ export class CooperHewittComponent {
     });
   }
   
-
 }

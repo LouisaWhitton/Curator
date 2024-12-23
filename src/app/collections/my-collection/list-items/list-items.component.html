@@ -1,0 +1,28 @@
+<!-- <p>Displaying page {{allItems.page}} of {{allItems.pages}} ({{allItems.total}}) for {{departmentName}} containing '{{searchString}}'</p> -->
+ <!-- <p>{{infoString}}</p>
+ <p>{{pageNumber}}</p> -->
+
+ <!-- <div class="grid align-items-center">
+  <div class="col-10">
+    <p-paginator [rows]="10" [totalRecords]="allItems.count" (onPageChange)="onPageChange($event)"
+    [showJumpToPageDropdown]="true" [showPageLinks]="false"></p-paginator>
+  </div>
+</div> -->
+
+<ol>
+    @for (item of myCollection; track item.origin_id) {
+     <li>
+        <p>{{ item.title}} </p>
+        <p>from {{ item.collection_name }}</p>
+        <p>by {{ item.originator }}</p>
+        @if ( item.imageUrl !== "" && item.title !== "This is your place - add items"){
+          <img class="img-logo"  [src]="item.imageUrl" [alt]="item.title" />
+        } @else {
+          <br />
+        }
+        @if ( item.originUrl !== "" ){
+          <a [href]="item.originUrl">click for more details</a>
+        }
+    </li>
+  }
+</ol>

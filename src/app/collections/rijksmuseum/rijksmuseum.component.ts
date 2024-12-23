@@ -9,6 +9,8 @@ import { Fluid } from 'primeng/fluid';
 import { Button } from 'primeng/button';
 import {InputTextModule} from 'primeng/inputtext';
 import { ListItemsComponent } from './list-items/list-items.component';
+import { mycollectionitem } from '../../../shared.types';
+import { HomeComponent } from '../../home/home.component';
 
 @Component({
   selector: 'app-rijksmuseum',
