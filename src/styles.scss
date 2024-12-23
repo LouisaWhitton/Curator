@@ -7,17 +7,24 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: #EBF7E3;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 html,
 body,
 app-root {
   height: 100%;
+  font-size: medium;
 }
 
 app-root {
   display: flex;
   flex-direction: column;
+}
+
+a {
+  font-size: medium;
 }
 
 .row {
@@ -88,4 +95,20 @@ app-root {
   white-space:pre;
   max-width: 240px;
   max-height: 240px;
+}
+
+.grid-container {
+  display: grid;
+  background-color: #9BD770;
+  grid-template-columns: auto auto;
+  grid-gap: 5px;
+  padding: 10px;
+}
+
+.grid-container > div {
+  text-align: center;
+  background-color: #66B032;
+  padding: 10px;
+  font-size: 30px;
+  max-width: 80%;
 }

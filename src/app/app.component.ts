@@ -20,6 +20,18 @@ export class AppComponent {
     } else {
       console.log('Production!');
     }
+
+    localStorage.removeItem("myCollection");
+
+    let data: any = [{
+      'origin_id': 'Your collection:',
+      'collection_name': 'any collection',
+      'title': 'This is your place - add items',
+      'originator': 'clicking the "like" button',
+      'importUrl': '',
+      'originUrl': ''
+    }];
+    localStorage.setItem('myCollection', JSON.stringify(data));
   }
 
 }

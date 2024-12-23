@@ -1,6 +1,13 @@
 <!-- <p>Displaying page {{allItems.page}} of {{allItems.pages}} ({{allItems.total}}) for {{departmentName}} containing '{{searchString}}'</p> -->
  <p>{{infoString}}</p>
 
+ <div class="grid align-items-center">
+  <div class="col-10">
+    <p-paginator [rows]="10" [totalRecords]="allItems.total" (onPageChange)="onPageChange($event)"
+    [showJumpToPageDropdown]="true" [showPageLinks]="false"></p-paginator>
+  </div>
+</div>
+
 <ol>
     @for (item of allItems.objects; track item.id) {
      <li>
@@ -10,12 +17,16 @@
             <p>{{ participant.role_name }} : {{ participant.person_name }} </p>
           }
         }
-        <a [href]="item.url">click for more details</a>
         @if ( item.images.length === 1){
           <img class="img-logo"  [src]="item.images[0].n.url" alt="{{ item.title }}" />
         } @else { 
           <p>{{ item.title }} has not yet been digitised</p>
         }
+        <br />
+        <a [href]="item.url">click for more details</a>
+        <br />
+        <p-button icon="pi pi-heart" (onClick)="addToMyCollection(item.id, item.title, item.participants[0].person_name, item.images[0].n.url, item.url)" ></p-button>
+
     </li>
   }
 </ol>

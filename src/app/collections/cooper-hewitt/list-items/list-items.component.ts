@@ -1,11 +1,14 @@
 import { Component, Input, Output, EventEmitter, OnChanges, OnInit } from '@angular/core';
 import { CooperHewittService } from '../../../services/cooper-hewitt.service';
 import { cooperhewittdepartment } from '../../../../shared.types';
+import { mycollectionitem } from '../../../../shared.types';
+import { Button } from 'primeng/button';
+import { PaginatorModule } from 'primeng/paginator';
 
 @Component({
   selector: 'app-cooper-hewitt-list-items',
   standalone: true,
-  imports: [],
+  imports: [Button, PaginatorModule],
   templateUrl: './list-items.component.html',
   styleUrl: './list-items.component.scss'
 })
@@ -17,11 +20,18 @@ export class ListItemsComponent {
   @Input() searchString: string = "";
   filterString: string = "";
   infoString: string = "";
+  pageNumber: number = 1;
+  totalPages: number = 0;
+  myCollection: any = [];
   // {{departmentName}} containing '{{searchString}}'"
 
   constructor(private dataService: CooperHewittService) {}
 
   ngOnChanges(): void {
+    this.callFromApi();
+  }
+
+  callFromApi(): void {
     if(this.searchString!=""){
       this.filterString = `department_id=${this.departmentId}&query=${this.searchString}`;
     } else {
@@ -29,7 +39,7 @@ export class ListItemsComponent {
     }
 
     // Fetch first page of all items
-    this.dataService.getAll(1, this.filterString).subscribe({
+    this.dataService.getAll(this.pageNumber, this.filterString).subscribe({
       next: (data) => {
         //console.log('JSON Data:', data);
         this.allItems = data;
@@ -44,6 +54,27 @@ export class ListItemsComponent {
         console.error('Error fetching JSON data:', error);
       },
     });
-   
+  }
+
+  onPageChange(props: any): void {
+    // alert(this.filterString);
+    // alert(props.page);
+    this.pageNumber=props.page + 1;
+    this.callFromApi();
+  }
+
+  addToMyCollection(origin_id: string, title: string, originator: string, imageUrl: string, originUrl: string ): void{
+    let itemToAdd: mycollectionitem = {
+      origin_id: origin_id,
+      collection_name: "Cooper Hewitt",
+      title: title,
+      originator: originator,
+      imageUrl: imageUrl,
+      originUrl: originUrl
+    }
+    this.myCollection = JSON.parse(String(localStorage.getItem('myCollection')));
+    this.myCollection.push(itemToAdd);
+    localStorage.removeItem("myCollection");
+    localStorage.setItem('myCollection', JSON.stringify(this.myCollection));
   }
 }
