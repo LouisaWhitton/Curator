@@ -28,7 +28,7 @@ Returning, to the "Home" page, clicking on "Rijksmuseum" offers a similar search
 
 Back to the "Home" page having "liked" items in both collections - you can now click on "My Collection" to see your curated list.
 
-[title](public/assets/images/my-collection-example.html)
+[title](public/assets/images/my-collection-example.png)
 
 ## For Developers
 
