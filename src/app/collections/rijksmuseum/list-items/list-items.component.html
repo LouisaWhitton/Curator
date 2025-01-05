@@ -19,7 +19,17 @@
         }
         <br />
         <a [href]="item.links.web">click for more details</a>
+        <br />
         <p-button icon="pi pi-heart" (onClick)="addToMyCollection(item.id, item.title, item.principalOrFirstMaker, item.webImage.url, item.links.web)" ></p-button>
     </li>
   }
 </ol>
+
+@if ( allItems.count > 10 ){
+  <div class="grid align-items-center">
+    <div class="col-10">
+      <p-paginator [rows]="10" [totalRecords]="allItems.count" (onPageChange)="onPageChange($event)"
+      [showJumpToPageDropdown]="true" [showPageLinks]="false"></p-paginator>
+    </div>
+  </div>
+}

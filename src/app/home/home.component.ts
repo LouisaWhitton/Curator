@@ -39,10 +39,10 @@ export class HomeComponent {
     {
       name: 'Cooper Hewitt, Smithsonian Design Museum',
       routerLink: '/cooper-hewitt',
-      logoSource: 'assets/images/cooper_hewitt_logo.jpg',
-      altText: `An image of a sign reading 'Cooper Hewitt' and, underneath, a smaller sign with a stylised image of a sun and the words 'Smithsonian Design Museum'
+      logoSource: 'assets/images/1024px-Cooper_Hewitt_(51332973313).jpg',
+      altText: `The frontage of Cooper Hewitt - Smithsonian Design Museum'
 
-        By Ajay Suresh from New York, NY, USA - Cooper Hewitt Logo, CC BY 2.0, https://commons.wikimedia.org/w/index.php?curid=79681140`,
+        By Eden, Janine and Jim from New York City, CC BY 2.0 <https://creativecommons.org/licenses/by/2.0>, via Wikimedia Commons`,
     },
     {
       name: 'Rijksmuseum',

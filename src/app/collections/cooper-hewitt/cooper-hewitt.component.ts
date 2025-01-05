@@ -7,13 +7,14 @@ import { Fieldset } from 'primeng/fieldset';
 import { FloatLabel } from 'primeng/floatlabel';
 import { Button } from 'primeng/button';
 import { ListItemsComponent } from './list-items/list-items.component';
+import {RouterOutlet, RouterLink} from '@angular/router';
 
 // type department = {id: string, name: string, count_objects: string}[];
 
 @Component({
   selector: 'app-cooper-hewitt',
   standalone: true,
-  imports: [Button, Fieldset, FloatLabel, FormsModule, ListboxModule, ListItemsComponent, ReactiveFormsModule],
+  imports: [Button, Fieldset, FloatLabel, FormsModule, ListboxModule, ListItemsComponent, ReactiveFormsModule, RouterLink, RouterOutlet],
   templateUrl: './cooper-hewitt.component.html',
   styleUrl: './cooper-hewitt.component.scss',
 })

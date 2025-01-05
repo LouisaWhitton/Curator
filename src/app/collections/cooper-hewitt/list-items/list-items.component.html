@@ -25,9 +25,16 @@
         <a [href]="item.url">click for more details</a>
         <br />
         <p-button icon="pi pi-heart" (onClick)="addToMyCollection(item.id, item.title, item.participants[0].person_name, item.images[0].n.url, item.url)" ></p-button>
-
     </li>
   }
 </ol>
-  
+
+@if ( allItems.total > 10 ){
+  <div class="grid align-items-center">
+    <div class="col-10">
+      <p-paginator [rows]="10" [totalRecords]="allItems.total" (onPageChange)="onPageChange($event)"
+      [showJumpToPageDropdown]="true" [showPageLinks]="false"></p-paginator>
+    </div>
+  </div>
+}
 

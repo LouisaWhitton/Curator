@@ -4,11 +4,12 @@ import { Fieldset } from 'primeng/fieldset';
 import { FloatLabel } from 'primeng/floatlabel';
 import { Button } from 'primeng/button';
 import { ListItemsComponent } from './list-items/list-items.component';
+import {RouterOutlet, RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-rijksmuseum',
   standalone: true,
-  imports: [Button, Fieldset, FloatLabel, FormsModule, ListItemsComponent, ReactiveFormsModule],
+  imports: [Button, Fieldset, FloatLabel, FormsModule, ListItemsComponent, ReactiveFormsModule, RouterLink, RouterOutlet],
   templateUrl: './rijksmuseum.component.html',
   styleUrl: './rijksmuseum.component.scss'
 })
