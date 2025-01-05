@@ -28,5 +28,13 @@
     </li>
   }
 </ol>
-  
+
+@if ( allItems.total > 10 ){
+  <div class="grid align-items-center">
+    <div class="col-10">
+      <p-paginator [rows]="10" [totalRecords]="allItems.total" (onPageChange)="onPageChange($event)"
+      [showJumpToPageDropdown]="true" [showPageLinks]="false"></p-paginator>
+    </div>
+  </div>
+}
 
