@@ -5,15 +5,15 @@
   <ng-template #list let-items>
       @for(collection of collections; track collection){
           <div class="column wrap align-left mb-small" >
-              <div class="md:w-40 relative">
+              <div class="mt-small mb-small">
                   <img
                       class="img-logo"
                       [src]="collection.logoSource"
                       [alt]="collection.altText"
                   />
               </div>
-              <div class="flex flex-col md:flex-row justify-between md:items-center flex-1 gap-6">
-                  <div class="flex flex-row md:flex-col justify-between items-start gap-2">
+              <div class="flex flex-col justify-between flex-1 gap-6">
+                  <div class="flex flex-row justify-between items-start gap-2">
                       <div>
                           <!-- <span class="font-medium text-surface-500 dark:text-surface-400 text-sm">{{ item.category }}</span> -->
                           <a class="text-lg font-medium mt-2" [routerLink]="collection.routerLink">{{ collection.name }} </a>

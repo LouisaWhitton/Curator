@@ -53,6 +53,14 @@ a {
   margin-bottom: 30px;
 }
 
+.ml-small {
+  margin-left: 20px;
+}
+
+.ml-large {
+  margin-left: 40px;
+}
+
 .wrap {
   flex-wrap: wrap;
 }
@@ -77,6 +85,10 @@ a {
   align-items: left;
 }
 
+.align-right {
+  align-items: right;
+}
+
 .justify-center {
   justify-content: center;
 }
@@ -93,8 +105,8 @@ a {
 .img-logo
 { 
   white-space:pre;
-  max-width: 240px;
-  max-height: 240px;
+  max-width: min(90%, 240px);
+  max-height: min(80%, 240px);
 }
 
 .grid-container {
