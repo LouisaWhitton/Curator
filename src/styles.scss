@@ -21,10 +21,13 @@ app-root {
 app-root {
   display: flex;
   flex-direction: column;
+  color: #1B3409;
 }
 
 a {
   font-size: medium;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color:#1B3409;
 }
 
 .row {
@@ -35,6 +38,7 @@ a {
 .column {
   display: flex;
   flex-direction: column;
+  background-color: white;
 }
 
 .mt-small {
@@ -123,4 +127,8 @@ a {
   padding: 10px;
   font-size: 30px;
   max-width: 80%;
+}
+
+.light-background {
+  background-color: white;
 }

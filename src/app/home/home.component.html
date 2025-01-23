@@ -4,8 +4,8 @@
   
   <ng-template #list let-items>
       @for(collection of collections; track collection){
-          <div class="column wrap align-left mb-small" >
-              <div class="mt-small mb-small">
+          <div class="column wrap align-left mb-small light-background" >
+              <div class="mt-small mb-small light-background">
                   <img
                       class="img-logo"
                       [src]="collection.logoSource"
@@ -16,7 +16,7 @@
                   <div class="flex flex-row justify-between items-start gap-2">
                       <div>
                           <!-- <span class="font-medium text-surface-500 dark:text-surface-400 text-sm">{{ item.category }}</span> -->
-                          <a class="text-lg font-medium mt-2" [routerLink]="collection.routerLink">{{ collection.name }} </a>
+                          <a [routerLink]="collection.routerLink">{{ collection.name }} </a>
                       </div>
                       <div class="bg-surface-100 p-1" style="border-radius: 30px">
                           <div
@@ -38,10 +38,10 @@
     <div class="item2">
         <p-dataview #dv [value]="myCollections">
            
-            <ng-template #list let-items>
+            <ng-template #list let-items class="light-background">
                 @for(mycollection of myCollections; track mycollection){
-                    <div class="column wrap align-left mb-small" >
-                        <div class="md:w-40 relative">
+                    <div class="column wrap align-left mb-small light-background" >
+                        <div class="md:w-40 relative light-background">
                             <img
                                 class="img-logo"
                                 [src]="mycollection.logoSource"
