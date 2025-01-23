@@ -1,11 +1,11 @@
-<h1>Cooper Hewitt - Smithsonian Design Museum</h1>
+<h1>Art Institute of Chicago</h1>
 
 <p-fieldset legend="Filter" [toggleable]="true">
   @defer ( when fetchComplete ){
   <p-select
-    [options]="allDepartments"
-    [(ngModel)]="selectedDepartment"
-    optionLabel="name"
+    [options]="allArtTypes.data"
+    [(ngModel)]="selectedArtType"
+    optionLabel="title"
     [style]="{ width: '25rem' }"
   ></p-select>
   }
@@ -19,9 +19,9 @@
   <p-button label="Search" icon="pi pi-search" (onClick)="setSearchString()" ></p-button>
 </p-fieldset>
 
-<app-cooper-hewitt-list-items
-  departmentId="{{ selectedDepartment.id }}"
-  departmentName="{{ selectedDepartment.name }}"
+<app-artic-list-items
+  artwork_type_id="{{ selectedArtType.id }}"
+  artwork_type="{{ selectedArtType.title }}"
   searchString="{{searchString}}"
   allItems="{{ allItems }}"
 />

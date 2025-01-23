@@ -37,20 +37,20 @@ export class HomeComponent {
     altText: string;
   }[] = [
     {
+      name: 'Art Institute of Chicago',
+      routerLink: '/artic',
+      logoSource: 'assets/images/art-institute-of-chicago-logo.png',
+      altText: `The logo of the Art Institue of Chicago
+
+        The Art Institute of Chicago, CC0, via Wikimedia Commons`,
+    },
+    {
       name: 'Cooper Hewitt, Smithsonian Design Museum',
       routerLink: '/cooper-hewitt',
       logoSource: 'assets/images/1024px-Cooper_Hewitt_(51332973313).jpg',
       altText: `The frontage of Cooper Hewitt - Smithsonian Design Museum'
 
         By Eden, Janine and Jim from New York City, CC BY 2.0 <https://creativecommons.org/licenses/by/2.0>, via Wikimedia Commons`,
-    },
-    {
-      name: 'Rijksmuseum',
-      routerLink: '/rijksmuseum',
-      logoSource: 'assets/images/604px-20130420_Amsterdam_04_Rijksmuseum.jpeg',
-      altText: `An image of the frontage of the Rijksmuseum in Amsterdam
-
-        By Mark Ahsmann - Own work, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=25748805`,
     },
   ];
 }

@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { CooperHewittService } from '../../services/cooper-hewitt.service';
-import { cooperhewittdepartment, mycollectionitem } from '../../../shared.types';
+import { ArticService } from '../../services/artic.service';
+import { articArtType, mycollectionitem } from '../../../shared.types';
 import { FormsModule, ReactiveFormsModule, FormControl, FormGroup } from '@angular/forms';
 import { SelectModule } from 'primeng/select';
 import { Fieldset } from 'primeng/fieldset';
@@ -12,21 +12,21 @@ import {RouterOutlet, RouterLink} from '@angular/router';
 // type department = {id: string, name: string, count_objects: string}[];
 
 @Component({
-  selector: 'app-cooper-hewitt',
+  selector: 'app-artic',
   standalone: true,
   imports: [Button, Fieldset, FloatLabel, FormsModule, SelectModule, ListItemsComponent, ReactiveFormsModule, RouterLink, RouterOutlet],
-  templateUrl: './cooper-hewitt.component.html',
-  styleUrl: './cooper-hewitt.component.scss',
+  templateUrl: './artic.component.html',
+  styleUrl: './artic.component.scss',
 })
-export class CooperHewittComponent {
-  allDepartments: cooperhewittdepartment[] = [];
+export class ArticComponent {
+  allArtTypes: any = [];
   @Input() allItems: any = [];
-  selectedDepartment: cooperhewittdepartment = { id: "35347493", name: "Drawings, Prints, and Graphic Design", count_objects: "" };
+  selectedArtType: any = { id: "1", title: "Painting" };
   searchString: string = "";
   inputSearchString: string = "";
   fetchComplete: boolean = false;
   
-  constructor(private dataService: CooperHewittService) {}
+  constructor(private dataService: ArticService) {}
 
   setSearchString(): void {
     this.searchString = this.inputSearchString;
@@ -34,12 +34,11 @@ export class CooperHewittComponent {
 
   ngOnInit(): void { 
     let mycol: string = JSON.parse(String(localStorage.getItem('myCollection')));
-    // Fetch first page of departments
-    this.dataService.getDepartments(1).subscribe({
+    // Fetch artwork types
+    this.dataService.getArtTypes().subscribe({
       next: (data) => {
-        this.allDepartments = data.departments;
-        console.log(this.allDepartments);
-        this.selectedDepartment = this.allDepartments[0];
+        this.allArtTypes = data;
+        this.selectedArtType = this.allArtTypes.data[0];
         this.fetchComplete = true;
       },
       error: (error) => {

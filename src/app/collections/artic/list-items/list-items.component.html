@@ -1,0 +1,49 @@
+<p>{{infoString}}</p>
+
+<br />
+<!-- <p>{{total_count}}</p> -->
+
+<div class="grid align-items-center">
+ <div class="col-10">
+   <p-paginator [rows]="6" [totalRecords]="total_count" (onPageChange)="onPageChange($event)"
+   [showJumpToPageDropdown]="true" [showPageLinks]="false"></p-paginator>
+ </div>
+</div>
+
+<ul>
+   @for (item of allItems.data; track item.id) {
+    <li>
+       <p>{{ item.title }} </p>
+       @if ( item.artist_title ){
+        <p>by {{ item.artist_title }}</p>>
+      }
+       <!-- @for (participant of item.participants; track participant) {
+         @if ( !["Donor", "Bequestor", "Previous owner"].includes(participant.role_name)){
+           <p>{{ participant.role_name }} : {{ participant.person_name }} </p>
+         }
+       } -->
+       @if ( item.image_id ){
+         <img class="img-logo"  [src]="item.image_url" alt="{{ item.title }}" />
+       } @else { 
+         <p>{{ item.title }} has not yet been digitised</p>
+       }
+       <br />
+       <!-- <br />
+       <a [href]="item.url">click for more details</a>
+       <br /> -->
+       @if ( item.is_liked ){
+        <p class="liked-item">you have added this to your collection!</p>
+       } @else {
+        <p-button icon="pi pi-heart" (onClick)="addToMyCollection(item.id, item.title, item.artist_title, item.image_url, item.url, item)" ></p-button>
+       }
+ }
+</ul>
+
+@if ( total_count > 6 ){
+  <div class="grid align-items-center">
+    <div class="col-10">
+      <p-paginator [rows]="6" [totalRecords]="total_count" (onPageChange)="onPageChange($event)"
+      [showJumpToPageDropdown]="true" [showPageLinks]="false"></p-paginator>
+    </div>
+  </div>
+}

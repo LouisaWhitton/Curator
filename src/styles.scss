@@ -15,16 +15,30 @@ html,
 body,
 app-root {
   height: 100%;
-  font-size: medium;
+  font-size:small;
 }
 
 app-root {
   display: flex;
   flex-direction: column;
+  color: #1B3409;
 }
 
 a {
   font-size: medium;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color:#1B3409;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+li {
+  margin-right: 10px;
 }
 
 .row {
@@ -35,6 +49,7 @@ a {
 .column {
   display: flex;
   flex-direction: column;
+  background-color: white;
 }
 
 .mt-small {
@@ -123,4 +138,13 @@ a {
   padding: 10px;
   font-size: 30px;
   max-width: 80%;
+}
+
+.light-background {
+  background-color: white;
+}
+
+.liked-item {
+  font-style: italic;
+  font-weight: bold;
 }

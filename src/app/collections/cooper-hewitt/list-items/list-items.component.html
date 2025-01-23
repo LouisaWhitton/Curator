@@ -2,12 +2,12 @@
 
  <div class="grid align-items-center">
   <div class="col-10">
-    <p-paginator [rows]="10" [totalRecords]="allItems.total" (onPageChange)="onPageChange($event)"
+    <p-paginator [rows]="6" [totalRecords]="allItems.total" (onPageChange)="onPageChange($event)"
     [showJumpToPageDropdown]="true" [showPageLinks]="false"></p-paginator>
   </div>
 </div>
 
-<ol>
+<ul>
     @for (item of allItems.objects; track item.id) {
      <li>
         <p>{{ item.title }} </p>
@@ -24,15 +24,19 @@
         <br />
         <a [href]="item.url">click for more details</a>
         <br />
-        <p-button icon="pi pi-heart" (onClick)="addToMyCollection(item.id, item.title, item.participants[0].person_name, item.images[0].n.url, item.url)" ></p-button>
+        @if ( item.is_liked ){
+          <p class="liked-item">you have added this to your collection!</p>
+         } @else {
+          <p-button icon="pi pi-heart" (onClick)="addToMyCollection(item.id, item.title, item.participants[0].person_name, item.images[0].n.url, item.url, item)" ></p-button>
+         }
     </li>
   }
-</ol>
+</ul>
 
-@if ( allItems.total > 10 ){
+@if ( allItems.total > 6 ){
   <div class="grid align-items-center">
     <div class="col-10">
-      <p-paginator [rows]="10" [totalRecords]="allItems.total" (onPageChange)="onPageChange($event)"
+      <p-paginator [rows]="6" [totalRecords]="allItems.total" (onPageChange)="onPageChange($event)"
       [showJumpToPageDropdown]="true" [showPageLinks]="false"></p-paginator>
     </div>
   </div>
