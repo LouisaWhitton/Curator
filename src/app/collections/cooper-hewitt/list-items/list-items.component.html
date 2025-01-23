@@ -7,7 +7,7 @@
   </div>
 </div>
 
-<ol>
+<ul>
     @for (item of allItems.objects; track item.id) {
      <li>
         <p>{{ item.title }} </p>
@@ -31,7 +31,7 @@
          }
     </li>
   }
-</ol>
+</ul>
 
 @if ( allItems.total > 10 ){
   <div class="grid align-items-center">

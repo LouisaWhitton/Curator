@@ -10,7 +10,7 @@
  </div>
 </div>
 
-<ol>
+<ul>
    @for (item of allItems.data; track item.id) {
     <li>
        <p>{{ item.title }} </p>
@@ -37,7 +37,7 @@
         <p-button icon="pi pi-heart" (onClick)="addToMyCollection(item.id, item.title, item.artist_title, item.image_url, item.url, item)" ></p-button>
        }
  }
-</ol>
+</ul>
 
 @if ( total_count > 10 ){
   <div class="grid align-items-center">
