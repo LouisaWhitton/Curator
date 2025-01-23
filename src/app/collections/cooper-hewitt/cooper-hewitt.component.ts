@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { CooperHewittService } from '../../services/cooper-hewitt.service';
 import { cooperhewittdepartment, mycollectionitem } from '../../../shared.types';
 import { FormsModule, ReactiveFormsModule, FormControl, FormGroup } from '@angular/forms';
-import { ListboxModule} from 'primeng/listbox';
+import { SelectModule } from 'primeng/select';
 import { Fieldset } from 'primeng/fieldset';
 import { FloatLabel } from 'primeng/floatlabel';
 import { Button } from 'primeng/button';
@@ -14,7 +14,7 @@ import {RouterOutlet, RouterLink} from '@angular/router';
 @Component({
   selector: 'app-cooper-hewitt',
   standalone: true,
-  imports: [Button, Fieldset, FloatLabel, FormsModule, ListboxModule, ListItemsComponent, ReactiveFormsModule, RouterLink, RouterOutlet],
+  imports: [Button, Fieldset, FloatLabel, FormsModule, SelectModule, ListItemsComponent, ReactiveFormsModule, RouterLink, RouterOutlet],
   templateUrl: './cooper-hewitt.component.html',
   styleUrl: './cooper-hewitt.component.scss',
 })

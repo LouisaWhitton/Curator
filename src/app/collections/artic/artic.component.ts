@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { ArticService } from '../../services/artic.service';
 import { articArtType, mycollectionitem } from '../../../shared.types';
 import { FormsModule, ReactiveFormsModule, FormControl, FormGroup } from '@angular/forms';
-import { ListboxModule} from 'primeng/listbox';
+import { SelectModule } from 'primeng/select';
 import { Fieldset } from 'primeng/fieldset';
 import { FloatLabel } from 'primeng/floatlabel';
 import { Button } from 'primeng/button';
@@ -14,7 +14,7 @@ import {RouterOutlet, RouterLink} from '@angular/router';
 @Component({
   selector: 'app-artic',
   standalone: true,
-  imports: [Button, Fieldset, FloatLabel, FormsModule, ListboxModule, ListItemsComponent, ReactiveFormsModule, RouterLink, RouterOutlet],
+  imports: [Button, Fieldset, FloatLabel, FormsModule, SelectModule, ListItemsComponent, ReactiveFormsModule, RouterLink, RouterOutlet],
   templateUrl: './artic.component.html',
   styleUrl: './artic.component.scss',
 })

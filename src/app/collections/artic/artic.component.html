@@ -2,13 +2,12 @@
 
 <p-fieldset legend="Filter" [toggleable]="true">
   @defer ( when fetchComplete ){
-  <p-listbox
+  <p-select
     [options]="allArtTypes.data"
     [(ngModel)]="selectedArtType"
     optionLabel="title"
-    [listStyle]="{ 'max-height': '150px' }"
     [style]="{ width: '25rem' }"
-  ></p-listbox>
+  ></p-select>
   }
   <br />
   <br />
