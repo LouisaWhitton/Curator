@@ -58,7 +58,7 @@ export class ListItemsComponent {
     this.callFromApi();
   }
 
-  addToMyCollection(origin_id: string, title: string, originator: string, imageUrl: string, originUrl: string ): void{
+  addToMyCollection(origin_id: string, title: string, originator: string, imageUrl: string, originUrl: string, item: any ): void{
     let itemToAdd: mycollectionitem = {
       origin_id: origin_id,
       collection_name: "Cooper Hewitt",
@@ -71,5 +71,6 @@ export class ListItemsComponent {
     this.myCollection.push(itemToAdd);
     localStorage.removeItem("myCollection");
     localStorage.setItem('myCollection', JSON.stringify(this.myCollection));
+    item.is_liked = true;
   }
 }

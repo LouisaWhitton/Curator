@@ -31,8 +31,11 @@
        <!-- <br />
        <a [href]="item.url">click for more details</a>
        <br /> -->
-       <p-button icon="pi pi-heart" (onClick)="addToMyCollection(item.id, item.title, item.artist_title, item.image_url, item.url)" ></p-button>
-   </li>
+       @if ( item.is_liked ){
+        <p class="liked-item">you have added this to your collection!</p>
+       } @else {
+        <p-button icon="pi pi-heart" (onClick)="addToMyCollection(item.id, item.title, item.artist_title, item.image_url, item.url, item)" ></p-button>
+       }
  }
 </ol>
 

@@ -20,7 +20,11 @@
         <br />
         <a [href]="item.links.web">click for more details</a>
         <br />
-        <p-button icon="pi pi-heart" (onClick)="addToMyCollection(item.id, item.title, item.principalOrFirstMaker, item.webImage.url, item.links.web)" ></p-button>
+        @if ( item.is_liked ){
+          <p class="liked-item">you have added this to your collection!</p>
+         } @else {
+          <p-button icon="pi pi-heart" (onClick)="addToMyCollection(item.id, item.title, item.principalOrFirstMaker, item.webImage.url, item.links.web, item)" ></p-button>
+         }
     </li>
   }
 </ol>
