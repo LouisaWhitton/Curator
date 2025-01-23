@@ -2,7 +2,7 @@
 
 Curator is a web application generated with Angular.
 
-It allows the user to view artworks in multiple collections (currently configured for Cooper Hewitt Smithsonian Design Museum and the Rijksmuseum in Amsterdam) and select or "like" items from them which appear in the user's own collection ("My Collection").
+It allows the user to view artworks in multiple collections (currently configured for the Art Institute of Chicago and the Cooper Hewitt Smithsonian Design Museum) and select or "like" items from them which appear in the user's own collection ("My Collection").
 
 ## Usage
 
@@ -10,11 +10,11 @@ On loading, the Home screen appears. There are two columns: the left hand column
 
 ![Home Page](public/assets/images/home_page.png)
 
-If you click on "Cooper Hewitt", it opens filtered to "Drawings, Prints and Graphic Design". There is a listbox allowing the user to filter to other departments, along with a search text box.
+If you click on "Art Institute of Chicago", it opens filtered to "Paintings". There is a select box allowing the user to filter to other artwork types, along with a search text box.
 
-![Cooper Hewitt filter](public/assets/images/cooper_hewitt_filter.png)
+![Art Institute of Chicago](public/assets/images/artic.png)
 
-A search for "Yorkshire" sadly matches no items:
+Returning to the home page and clicking on "Cooper Hewitt", a search for "Yorkshire" in the Cooper Hewitt collection sadly matches no items:
 
 !["No items found"](public/assets/images/cooper-hewitt-no-yorkshire-items.png)
 
@@ -22,9 +22,7 @@ However, a search for "cricket" does! Note the "like" heart button - clicking on
 
 !["Like" button](public/assets/images/cooper-hewitt-cricket.png)
 
-Returning, to the "Home" page, clicking on "Rijksmuseum" offers a similar search, but without the "Department" filter. Different collections offer different options for searching their data, so the developer may offer varying filter options applicable to each collection.
-
-![Rijksmuseum](public/assets/images/rijksmuseum-search.png)
+Different collections offer different options for searching their data, so the developer may offer varying filter options applicable to each collection.
 
 Back to the "Home" page having "liked" items in both collections - you can now click on "My Collection" to see your curated list.
 
