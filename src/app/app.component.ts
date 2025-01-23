@@ -23,14 +23,7 @@ export class AppComponent {
 
     localStorage.removeItem("myCollection");
 
-    let data: any = [{
-      'origin_id': 'Your collection:',
-      'collection_name': 'any collection',
-      'title': 'This is your place - add items',
-      'originator': 'clicking the "like" button',
-      'importUrl': '',
-      'originUrl': ''
-    }];
+    let data: any = [];
     localStorage.setItem('myCollection', JSON.stringify(data));
   }
 

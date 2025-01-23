@@ -33,9 +33,9 @@ export class ListItemsComponent {
 
   callFromApi(): void {
     if(this.searchString!=""){
-      this.filterString = `&q=${this.searchString}&query%5Bterm%5D%5Bartwork_type_id%5D=${this.artwork_type_id}`;
+      this.filterString = `&limit=6&q=${this.searchString}&query%5Bterm%5D%5Bartwork_type_id%5D=${this.artwork_type_id}`;
     } else {
-      this.filterString = `&query%5Bterm%5D%5Bartwork_type_id%5D=${this.artwork_type_id}`;
+      this.filterString = `&limit=6&query%5Bterm%5D%5Bartwork_type_id%5D=${this.artwork_type_id}`;
     }
 
     this.itemDetails = [];

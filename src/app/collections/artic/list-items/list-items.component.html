@@ -5,7 +5,7 @@
 
 <div class="grid align-items-center">
  <div class="col-10">
-   <p-paginator [rows]="10" [totalRecords]="total_count" (onPageChange)="onPageChange($event)"
+   <p-paginator [rows]="6" [totalRecords]="total_count" (onPageChange)="onPageChange($event)"
    [showJumpToPageDropdown]="true" [showPageLinks]="false"></p-paginator>
  </div>
 </div>
@@ -39,10 +39,10 @@
  }
 </ul>
 
-@if ( total_count > 10 ){
+@if ( total_count > 6 ){
   <div class="grid align-items-center">
     <div class="col-10">
-      <p-paginator [rows]="10" [totalRecords]="total_count" (onPageChange)="onPageChange($event)"
+      <p-paginator [rows]="6" [totalRecords]="total_count" (onPageChange)="onPageChange($event)"
       [showJumpToPageDropdown]="true" [showPageLinks]="false"></p-paginator>
     </div>
   </div>

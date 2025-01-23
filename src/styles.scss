@@ -15,7 +15,7 @@ html,
 body,
 app-root {
   height: 100%;
-  font-size: medium;
+  font-size:small;
 }
 
 app-root {
@@ -32,6 +32,13 @@ a {
 
 ul {
   list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+li {
+  margin-right: 10px;
 }
 
 .row {

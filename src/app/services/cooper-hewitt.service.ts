@@ -16,7 +16,7 @@ export class CooperHewittService {
   getAll(pageFrom:number, filterString: string): Observable<any> {
     return this.http
       .get<any>(
-        `${process.env['COOPERHEWITT_URL']}?method=cooperhewitt.search.collection&access_token=${process.env['COOPERHEWITT_TOKEN']}&${filterString}&page=${pageFrom}&per_page=10`
+        `${process.env['COOPERHEWITT_URL']}?method=cooperhewitt.search.collection&access_token=${process.env['COOPERHEWITT_TOKEN']}&${filterString}&page=${pageFrom}&per_page=6`
       )
       .pipe(
         catchError((error) => {
