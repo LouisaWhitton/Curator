@@ -13,3 +13,8 @@ export interface mycollectionitem {
     imageUrl: string
     originUrl: string
 }
+
+export interface articArtType {
+    id: number  
+    title: string
+}

@@ -37,6 +37,14 @@ export class HomeComponent {
     altText: string;
   }[] = [
     {
+      name: 'Art Institute of Chicago',
+      routerLink: '/artic',
+      logoSource: 'assets/images/art-institute-of-chicago-logo.png',
+      altText: `The logo of the Art Institue of Chicago
+
+        The Art Institute of Chicago, CC0, via Wikimedia Commons`,
+    },
+    {
       name: 'Cooper Hewitt, Smithsonian Design Museum',
       routerLink: '/cooper-hewitt',
       logoSource: 'assets/images/1024px-Cooper_Hewitt_(51332973313).jpg',

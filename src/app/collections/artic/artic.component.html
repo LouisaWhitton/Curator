@@ -1,0 +1,33 @@
+<h1>Art Institute of Chicago</h1>
+
+<p-fieldset legend="Filter" [toggleable]="true">
+  @defer ( when fetchComplete ){
+  <p-listbox
+    [options]="allArtTypes.data"
+    [(ngModel)]="selectedArtType"
+    optionLabel="title"
+    [listStyle]="{ 'max-height': '150px' }"
+    [style]="{ width: '25rem' }"
+  ></p-listbox>
+  }
+  <br />
+  <br />
+
+  <p-floatlabel>
+    <input id="search-text" pInputText [(ngModel)]="inputSearchString" [style]="{ width: '30rem' }"/>
+    <label for="search-text">Your search here (eg 'cat')</label>
+  </p-floatlabel>
+  <p-button label="Search" icon="pi pi-search" (onClick)="setSearchString()" ></p-button>
+</p-fieldset>
+
+<app-artic-list-items
+  artwork_type_id="{{ selectedArtType.id }}"
+  artwork_type="{{ selectedArtType.title }}"
+  searchString="{{searchString}}"
+  allItems="{{ allItems }}"
+/>
+
+<nav>
+  <a routerLink="/">Home</a>
+</nav>
+<router-outlet />
